@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+.coverage
+htmlcov/
+# Generated corpus renders + pipeline output (regenerate with `snapscribe corpus build`)
+corpus/generated/
+out/
+debug/
+sessions/
+models/

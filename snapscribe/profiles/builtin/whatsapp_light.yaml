@@ -1,0 +1,79 @@
+name: whatsapp_light
+display_name: WhatsApp (light)
+app: whatsapp
+theme: light
+version: 1
+notes: >
+  Tuned against the synthetic corpus and modern (2023+) WhatsApp light theme.
+  Colours drift between app versions and Android skins; if bubbles are missed,
+  raise segmentation.bg_tolerance or re-sample the colours from your own
+  screenshots with `snapscribe profile sample <image>`.
+
+layout:
+  header_fraction: 0.085
+  footer_fraction: 0.085
+  side_split: 0.5
+  side_deadzone: 0.07
+  edge_tolerance_px: 3
+  avatar_width_fraction: 0.0
+
+colors:
+  background: "#EFEAE2"
+  incoming_bubble: "#FFFFFF"
+  outgoing_bubble: "#D9FDD3"
+  system_bubble: "#FFFFFF"
+  text: "#111B21"
+  tolerance: 42
+
+segmentation:
+  bg_tolerance: 16
+  close_kernel: [31, 9]
+  open_kernel: [3, 3]
+  min_width_fraction: 0.07
+  max_width_fraction: 0.95
+  min_height_px: 18
+  max_height_fraction: 0.7
+  min_area_px: 500
+  row_gap_px: 5
+  attachment_variance: 1400.0
+  system_max_width_fraction: 0.55
+  system_center_tolerance: 0.12
+
+timestamps:
+  time_patterns:
+    - '(?P<h>\d{1,2})[:.](?P<m>\d{2})\s*(?P<ampm>[APap]\.?[Mm]\.?)?$'
+  date_separator_patterns:
+    - '^(today|yesterday)$'
+    - '^\w+,?\s+\d{1,2}\s+\w+(\s+\d{4})?$'
+    - '^\d{1,2}[/.]\d{1,2}[/.]\d{2,4}$'
+  locale: en
+  dayfirst: true
+  position: bottom_right
+  region_width_fraction: 0.4
+  region_height_fraction: 0.42
+  twelve_hour: false
+
+senders:
+  group_chat: false
+  me: "Me"
+  other: "Them"
+  sender_in_bubble: true
+  sender_line_max_words: 5
+
+fingerprint:
+  footer_placeholders:
+    - "Type a message"
+    - "Message"
+  header_keywords:
+    - "online"
+    - "last seen"
+  weights:
+    background: 1.0
+    outgoing: 1.4
+    incoming: 1.0
+    theme: 0.6
+    footer_text: 1.6
+  min_score: 0.45
+
+emoji_policy: placeholder
+emoji_placeholder: "[emoji]"
